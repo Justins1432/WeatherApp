@@ -58,7 +58,6 @@ class SettingsFragment : Fragment() {
                 }
                 alertDialog.cancel()
                 alertDialog.setView(window)
-
                 alertDialog.show()
 
             } else {
