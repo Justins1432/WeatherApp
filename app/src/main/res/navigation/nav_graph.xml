@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashOneFragment">
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.weatherapp.view.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/splashOneFragment"
+        android:name="com.example.weatherapp.view.fragments.SplashOneFragment"
+        tools:layout="@layout/fragment_splash_one" >
+        <action
+            android:id="@+id/action_splashOneFragment_to_splashTwoFragment"
+            app:destination="@id/splashTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashTwoFragment"
+        android:name="com.example.weatherapp.view.fragments.SplashTwoFragment"
+        tools:layout="@layout/fragment_splash_two" >
+        <action
+            android:id="@+id/action_splashTwoFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.example.weatherapp.view.fragments.WeatherFragment"
+        tools:layout="@layout/fragment_weather" >
+        <action
+            android:id="@+id/action_weatherFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_weatherFragment_to_weatherTwoFragment"
+            app:destination="@id/weatherTwoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherTwoFragment"
+        android:name="com.example.weatherapp.view.fragments.WeatherTwoFragment"
+        android:label="fragment_weather_two"
+        tools:layout="@layout/fragment_weather_two" />
+</navigation>

@@ -1,0 +1,11 @@
+<androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchGeo"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:checked="false"
+            app:showText="false"
+            android:theme="@style/MySwitchCompat"
+            android:textOff="OFF"
+            android:textOn="ON"
+            android:text="@string/geocoding" />
