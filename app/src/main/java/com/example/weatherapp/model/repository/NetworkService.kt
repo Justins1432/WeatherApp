@@ -1,29 +1,34 @@
 package com.example.weatherapp.model.repository
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class NetworkService {
-    private var mInstance: NetworkService? = null
     private val URL: String = "https://api.openweathermap.org"
-    private var retrofit: Retrofit? = null
+    var apiWeather: ApiWeather
 
-    private fun netService() {
-        retrofit = Retrofit.Builder()
-            .baseUrl(URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+
+    // для логирования запросов
+    private val httpLoggingInterceptor = HttpLoggingInterceptor()
+
+    val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(httpLoggingInterceptor)
+        .build()
+
+    private val retrofit = Retrofit.Builder()
+        .baseUrl(URL)
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
+        .build()
+
+    init {
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+
+        apiWeather = retrofit.create(ApiWeather::class.java)
     }
-
-    fun getInstance(): NetworkService? {
-        if (mInstance == null) {
-            mInstance = NetworkService()
-        }
-        return mInstance
-    }
-
-    fun getWeatherApi(): ApiWeather? {
-        return retrofit?.create(ApiWeather::class.java)
-    }
-
 }
+
