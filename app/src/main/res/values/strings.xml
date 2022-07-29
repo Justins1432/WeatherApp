@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Моя погода</string>
-    <string name="day_forecast">Прогноз на 10 дней</string>
+    <string name="day_forecast">Прогноз на 5 дней</string>
     <string name="settings">Настройки</string>
     <string name="geocoding">Геолокация</string>
     <string name="geo_txt">Если включить, прогноз станет точнее </string>
     <string name="place">Место</string>
     <string name="current_location">Текущее место</string>
     <string name="many_others">Задать другое</string>
+    <string name="max_temp">Макс, t</string>
+    <string name="min_temp">Мин, t</string>
+
 </resources>

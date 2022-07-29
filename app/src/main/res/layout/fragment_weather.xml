@@ -27,6 +27,7 @@
                 android:layout_height="278dp"
                 android:background="@drawable/toolbar_weather"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,13 +48,24 @@
                 android:id="@+id/tempCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="30dp"
                 android:textColor="@color/white"
                 android:textSize="48sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="+28" />
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/img_celsius"
+                app:layout_constraintStart_toEndOf="@id/tempCity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="12dp"/>
 
             <ImageView
                 android:id="@+id/imgSettings"
@@ -65,6 +77,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/weatherIcon"
                 android:layout_width="148dp"
                 android:layout_height="148dp"
                 android:src="@drawable/sun_icon"
@@ -96,12 +109,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/forecast_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            tools:listitem="@layout/weather_item"/>
 
     </LinearLayout>
 
