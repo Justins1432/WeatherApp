@@ -1,5 +1,6 @@
 package com.example.weatherapp.model.data
 
+import com.example.weatherapp.data.network.networkModel.*
 import com.google.gson.annotations.SerializedName
 
 class ForecastWeather(

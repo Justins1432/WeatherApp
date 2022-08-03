@@ -1,4 +1,4 @@
-package com.example.weatherapp.model.data
+package com.example.weatherapp.data.network.networkModel
 import com.google.gson.annotations.SerializedName
 
 class CurrentWeather(

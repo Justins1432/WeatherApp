@@ -1,4 +1,4 @@
-package com.example.weatherapp.model.repository
+package com.example.weatherapp.data.network
 
 import com.example.weatherapp.utils.Status
 

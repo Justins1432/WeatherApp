@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.weatherapp.view.fragments.SettingsFragment"
+        android:name="com.example.weatherapp.presentation.view.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/splashOneFragment"
-        android:name="com.example.weatherapp.view.fragments.SplashOneFragment"
+        android:name="com.example.weatherapp.presentation.view.fragments.SplashOneFragment"
         tools:layout="@layout/fragment_splash_one" >
         <action
             android:id="@+id/action_splashOneFragment_to_splashTwoFragment"
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashTwoFragment"
-        android:name="com.example.weatherapp.view.fragments.SplashTwoFragment"
+        android:name="com.example.weatherapp.presentation.view.fragments.SplashTwoFragment"
         tools:layout="@layout/fragment_splash_two" >
         <action
             android:id="@+id/action_splashTwoFragment_to_weatherFragment"
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/weatherFragment"
-        android:name="com.example.weatherapp.view.fragments.WeatherFragment"
+        android:name="com.example.weatherapp.presentation.view.fragments.WeatherFragment"
         tools:layout="@layout/fragment_weather" >
         <action
             android:id="@+id/action_weatherFragment_to_settingsFragment"
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/weatherTwoFragment"
-        android:name="com.example.weatherapp.view.fragments.WeatherTwoFragment"
+        android:name="com.example.weatherapp.presentation.view.fragments.WeatherTwoFragment"
         android:label="fragment_weather_two"
         tools:layout="@layout/fragment_weather_two" />
 </navigation>

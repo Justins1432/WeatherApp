@@ -1,15 +1,14 @@
-package com.example.weatherapp.model.repository
+package com.example.weatherapp.data.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class NetworkService {
     private val URL: String = "https://api.openweathermap.org"
-    //var apiWeather: ApiWeather
+    var apiWeather: ApiWeather
 
     private val httpLoggingInterceptor = HttpLoggingInterceptor()
 
@@ -26,7 +25,7 @@ class NetworkService {
 
     init {
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        //apiWeather = retrofit.create(ApiWeather::class.java)
+        apiWeather = retrofit.create(ApiWeather::class.java)
     }
-    val apiWeather: ApiWeather = retrofit.create(ApiWeather::class.java)
+
 }
