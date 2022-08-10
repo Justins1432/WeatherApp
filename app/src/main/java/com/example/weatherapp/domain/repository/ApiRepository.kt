@@ -1,7 +1,7 @@
 package com.example.weatherapp.domain.repository
 
-import com.example.weatherapp.data.network.networkModel.CurrentWeather
+import com.example.weatherapp.data.entities.EntityCurrentWeather
 
 interface ApiRepository {
-    suspend fun getCurrentWeather(): CurrentWeather
+    suspend fun getCurrentWeather(): EntityCurrentWeather
 }

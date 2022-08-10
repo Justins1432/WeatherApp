@@ -10,8 +10,8 @@ class MainScreenInteractor {
     private val apiRepository: ApiRepository = ApiRepositoryImpl()
     private val databaseRepository: DatabaseRepository = DatabaseRepositoryImpl()
 
-    suspend fun getCurrentWeather(): CurrentWeather {
-        return apiRepository.getCurrentWeather()
+    suspend fun getCurrentWeather() {
+        apiRepository.getCurrentWeather()
     }
 
 }

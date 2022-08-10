@@ -5,19 +5,24 @@ import android.util.Log
 import android.view.*
 
 import android.app.Application
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentWeatherBinding
 import com.example.weatherapp.app.MyApplication.Companion.apiWeather
+import com.example.weatherapp.data.network.networkModel.CurrentWeather
 import com.example.weatherapp.domain.interactor.MainScreenInteractor
 import com.example.weatherapp.presentation.viewmodel.WeatherViewModel
+import com.example.weatherapp.utils.Status
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import java.text.DecimalFormat
 
 
 @Suppress("DEPRECATION")
@@ -86,7 +91,39 @@ class WeatherFragment : Fragment() {
     }
 
     private fun currentWeather() {
-        viewModel.getCurrentWeather()
+        viewModel.getCurrentWeather().observe(viewLifecycleOwner, Observer {
+            it?.let { resource ->
+                when (resource.status) {
+                    Status.SUCCESS -> {
+                        MainScope().launch {
+                            val request = apiWeather.getCurrentWeatherAsync()
+                            val temp = request.main?.temp
+                            val city = request.name.toString()
+                            val format: String = DecimalFormat("#0").format(temp)
+
+                            View.VISIBLE
+                            View.GONE
+
+                            binding.city.text = city
+                            binding.tempCity.text = format
+
+                        }
+                    }
+
+                    Status.LOADING -> {
+                        View.VISIBLE
+                        View.GONE
+                    }
+
+                    Status.ERROR -> {
+                        View.VISIBLE
+                        View.GONE
+                        Toast.makeText(root.context, it.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+        })
     }
 
     /*private fun currentWeather() {
